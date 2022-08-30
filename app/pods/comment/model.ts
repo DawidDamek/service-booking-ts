@@ -1,9 +1,8 @@
-import DS from 'ember-data';
-import { attr, belongsTo, type AsyncBelongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, type AsyncBelongsTo } from '@ember-data/model';
 import Order from '../order/model';
 import User from '../user/model';
 
-export default class Comment extends DS.Model.extend({}) {
+export default class Comment extends Model {
   @attr('string')
   declare content: string;
   @belongsTo('order')

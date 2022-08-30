@@ -1,8 +1,7 @@
-import DS from 'ember-data';
-import { attr, belongsTo, type AsyncBelongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo, type AsyncBelongsTo } from '@ember-data/model';
 import Bike from '../bike/model';
 
-export default class Issue extends DS.Model.extend({}) {
+export default class Issue extends Model {
   @attr('string')
   declare details: string;
   @attr('string')

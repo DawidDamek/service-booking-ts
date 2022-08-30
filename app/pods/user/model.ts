@@ -1,11 +1,10 @@
-import { attr, hasMany, type AsyncHasMany } from '@ember-data/model';
-import DS from 'ember-data';
+import Model, { attr, hasMany, type AsyncHasMany } from '@ember-data/model';
 
 import Order from '../order/model';
 import Comment from '../comment/model';
 import Bike from '../bike/model';
 
-export default class User extends DS.Model.extend({}) {
+export default class User extends Model {
   @attr('boolean', { defaultValue: false })
   declare isAdmin: boolean;
   @attr

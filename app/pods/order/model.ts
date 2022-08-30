@@ -1,5 +1,4 @@
-import DS from 'ember-data';
-import {
+import Model, {
   attr,
   hasMany,
   belongsTo,
@@ -10,7 +9,7 @@ import User from '../user/model';
 import Bike from '../bike/model';
 import Comment from '../comment/model';
 
-export default class Order extends DS.Model.extend({}) {
+export default class Order extends Model {
   @attr('string')
   declare type: string;
   @attr('date', { defaultValue: () => new Date() })
