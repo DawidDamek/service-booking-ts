@@ -29,10 +29,10 @@ export default class Application extends Route {
       phoneNumber: 421593093,
     };
 
-    const adminModel = this.store.createRecord('user', admin);
-    const customer1Model = this.store.createRecord('user', customer1);
-    adminModel.save();
-    customer1Model.save();
+    const adminModel = await this.store.createRecord('user', admin).save();
+    const customer1Model = await this.store
+      .createRecord('user', customer1)
+      .save();
 
     const bike1Model = await this.store
       .createRecord('bike', {
