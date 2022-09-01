@@ -1,0 +1,12 @@
+<FindOrder::OrderInput
+  @onSubmit={{this.onShowOrder}}
+  @onInput={{this.onOrderIdFilter}}
+/>
+
+{{#if this.isShowOrder}}
+  <FindOrder::ShowOrder
+    @filteredOrder={{this.filteredOrder}}
+    @onClick={{this.onHideOrder}}
+    @showCommentField={{this.showCommentField}}
+  />
+{{/if}}

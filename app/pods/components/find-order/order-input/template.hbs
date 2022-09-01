@@ -1,0 +1,24 @@
+<div class='card w-75 mx-auto mt-5 bg-secondary'>
+  <div class='card-header text-white bg-dark'>
+    Check Your order status
+  </div>
+  <div class='card-body'>
+    <form {{on 'submit' @onSubmit}}>
+      <div class='input-group w-50 mb-3'>
+        <span class='input-group-text' id='basic-addon1'>Order ID</span>
+
+        <input
+          type='text'
+          class='form-control'
+          placeholder='example:asjf19q'
+          aria-label='order id'
+          aria-describedby='basic-addon1'
+          value={{this.id}}
+          {{on 'input' @onInput}}
+        />
+      </div>
+
+      <button class='btn btn-primary' type='submit'>Check</button>
+    </form>
+  </div>
+</div>

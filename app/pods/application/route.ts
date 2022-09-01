@@ -20,7 +20,7 @@ export default class Application extends Route {
       phoneNumber: 123456789,
     };
     const customer1 = {
-      isAdmin: true,
+      isAdmin: false,
       name: 'Piotr',
       surname: 'Kowal',
       username: 'Piotrus',

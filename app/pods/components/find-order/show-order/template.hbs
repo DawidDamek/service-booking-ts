@@ -1,0 +1,86 @@
+<div class='card w-75 mx-auto bg-secondary mt-3'>
+  <div class='card-header text-white bg-dark'>
+    Your Order
+  </div>
+  <div class='card-body'>
+
+    {{#each @filteredOrder as |order|}}
+      <h3>{{order.owner.name}} {{order.owner.surname}}</h3>
+      <h5>
+        Bike:
+        {{order.bike.brand}}
+        {{order.bike.model}}
+      </h5>
+      <p class='d-flex justify-content-around'>
+        <span>
+          Acceptance date:
+          {{format-date order.acceptanceDate}}
+        </span>
+        <span>
+          Aproximated release date
+          {{format-date order.releaseDate}}
+        </span>
+      </p>
+      <ul class='list-group rounded'>
+        {{#each order.bike.issues as |issue|}}
+          <li class='list-group-item d-flex justify-content-between'>
+            {{issue.details}}
+            <b>{{issue.status}}</b>
+          </li>
+        {{/each}}
+        <div class='d-flex flex-column justify-content-between my-2'>
+          <h3> Comments: </h3>
+          {{#each order.comments as |comment|}}
+            <div class='rounded bg-white px-3 py-2'>{{comment.content}}</div>
+          {{/each}}
+
+          {{#if this.showCommentField}}
+            <div class='input-group mb-3'>
+              <input
+                type='text'
+                class='form-control'
+                placeholder="Recipient's username"
+                aria-label="Recipient's username"
+                aria-describedby='basic-addon2'
+              />
+              <span
+                class='input-group-text d-flex justify-content-between'
+                id='basic-addon2'
+              >
+                <button
+                  class='btn btn-primary btn-sm mt-2 mx-1'
+                  type='button'
+                  {{on 'click' this.onCancelComment}}
+                >
+                  ✖️
+                </button>
+                <button
+                  class='btn btn-primary btn-sm mt-2'
+                  type='button'
+                  {{on 'click' this.onSaveComment}}
+                >
+                  ✔️
+                </button>
+              </span>
+            </div>
+          {{/if}}
+        </div>
+      </ul>
+
+    {{else}}
+      <p>invalid order id</p>
+    {{/each}}
+
+    <button
+      class='btn btn-primary mt-2'
+      type='button'
+      {{on 'click' this.onAddComment}}
+    >Add comment</button>
+
+    <button
+      class='btn btn-primary mt-2'
+      type='button'
+      {{on 'click' @onClick}}
+    >Close</button>
+  </div>
+</div>
