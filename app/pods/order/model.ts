@@ -10,6 +10,9 @@ import Bike from '../bike/model';
 import Comment from '../comment/model';
 
 export default class Order extends Model {
+  static filter(arg0: ({ id }: { id: string }) => boolean) {
+    throw new Error('Method not implemented.');
+  }
   @attr('string')
   declare type: string;
   @attr('date', { defaultValue: () => new Date() })

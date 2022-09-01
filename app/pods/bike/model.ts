@@ -1,5 +1,4 @@
-import DS from 'ember-data';
-import {
+import Model, {
   attr,
   belongsTo,
   hasMany,
@@ -10,7 +9,7 @@ import User from '../user/model';
 import Issue from '../issue/model';
 import Order from '../order/model';
 
-export default class Bike extends DS.Model.extend({}) {
+export default class Bike extends Model {
   @attr
   declare status: string;
   @attr
