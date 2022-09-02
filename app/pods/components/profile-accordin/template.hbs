@@ -1,0 +1,59 @@
+<div class='accordion w-50 mx-auto' id='accordionProfile'>
+  <div class='accordion-item'>
+    <h2 class='accordion-header' id='headingOne'>
+      <button
+        class='accordion-button collapsed sticky-top'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#collapseOne'
+        aria-expanded='false'
+        aria-controls='collapseOne'
+      >
+        User Details
+      </button>
+    </h2>
+    <div
+      id='collapseOne'
+      class='accordion-collapse collapse show'
+      aria-labelledby='headingOne'
+      data-bs-parent='#accordionProfile'
+    >
+      <div class='accordion-body'>
+        <button class='btn btn-primary' type='button'>Edit</button>
+        <ul class='list-group my-3'>
+          <li class='list-group-item'>{{@user.name}} {{@user.surname}}</li>
+          <li class='list-group-item'>Username: {{@user.username}}</li>
+          <li class='list-group-item'>Phone number: {{@user.phoneNumber}}</li>
+          <li class='list-group-item'>Email: {{@user.email}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class='accordion-item'>
+    <h2 class='accordion-header' id='headingTwo'>
+      <button
+        class='accordion-button collapsed sticky-top'
+        type='button'
+        data-bs-toggle='collapse'
+        data-bs-target='#collapseTwo'
+        aria-expanded='false'
+        aria-controls='collapseTwo'
+      >
+        Your bikes
+      </button>
+    </h2>
+
+    <div
+      id='collapseTwo'
+      class='accordion-collapse collapse'
+      aria-labelledby='headingTwo'
+      data-bs-parent='#accordionProfile'
+    >
+      <div class='accordion-body'>
+        <button class='btn btn-primary' type='button'>add bike</button>
+        <Bike::List @bikes={{@user.bikes}} />
+      </div>
+    </div>
+  </div>
+</div>
