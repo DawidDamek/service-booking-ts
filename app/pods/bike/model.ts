@@ -11,6 +11,8 @@ import Order from '../order/model';
 
 export default class Bike extends Model {
   @attr
+  declare photoUrl: string;
+  @attr
   declare status: string;
   @attr
   declare brand: string;
@@ -20,7 +22,7 @@ export default class Bike extends Model {
   declare color: string;
   @attr
   declare size: string;
-  @attr('string', { defaultValue: '' })
+  @attr('string', { defaultValue: '----' })
   declare description: string;
 
   @belongsTo('user')

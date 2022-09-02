@@ -41,6 +41,8 @@ export default class Application extends Route {
         model: 'Reign SX',
         color: 'blue',
         size: 'L',
+        photoUrl:
+          'https://images.giant-bicycles.com/b_white,c_pad,h_600,q_80,w_800/oz2p68vsxoswiptfjxwq/MY22Reign29SX_ColorAStarryNight.jpg',
         owner: adminModel,
       })
       .save();
@@ -52,6 +54,8 @@ export default class Application extends Route {
         model: 'Capra',
         color: 'yellow',
         size: 'M',
+        photoUrl:
+          'https://static.privatesportshop.com/img/p/2811042-8618188-thickbox.jpg',
         owner: adminModel,
       })
       .save();
@@ -63,6 +67,7 @@ export default class Application extends Route {
         model: 'Wigry 3',
         color: 'red',
         size: 'Unisize',
+        photoUrl: 'http://mima.pl/gallery/katalog-rowerow/40_121.jpg',
         description: 'has duck on handlebar',
         owner: customer1Model,
       })
