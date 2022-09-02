@@ -21,6 +21,7 @@
           {{format-date order.releaseDate}}
         </span>
       </p>
+
       <ul class='list-group rounded'>
         {{#each order.bike.issues as |issue|}}
           <li class='list-group-item d-flex justify-content-between'>
@@ -28,49 +29,22 @@
             <b>{{issue.status}}</b>
           </li>
         {{/each}}
-        <div class='d-flex flex-column justify-content-between my-2'>
-          <h3> Comments: </h3>
-          {{#each order.comments as |comment|}}
-            <div
-              class='d-flex justify-content-between rounded bg-white px-3 py-2 my-1'
-            >{{comment.content}}
-              <button class='btn btn-sm btn-light' type='button'>✖️</button>
-            </div>
-          {{/each}}
-
-          {{#if this.showCommentField}}
-            <div class='input-group mb-3'>
-
-              <input
-                id='inputComment'
-                type='text'
-                class='form-control'
-                placeholder='comment'
-                {{on 'input' this.onInputComment}}
-              />
-              <span
-                class='input-group-text d-flex justify-content-between'
-                id='basic-addon2'
-              >
-                <button
-                  class='btn btn-primary btn-sm mt-2 mx-1'
-                  type='button'
-                  {{on 'click' this.onCancelComment}}
-                >
-                  ✖️
-                </button>
-                <button
-                  class='btn btn-primary btn-sm mt-2'
-                  type='button'
-                  {{on 'click' this.onSaveComment}}
-                >
-                  ✔️
-                </button>
-              </span>
-            </div>
-          {{/if}}
-        </div>
       </ul>
+
+      <div class='d-flex flex-column justify-content-between my-2'>
+        <h3> Comments: </h3>
+        {{#each order.comments as |comment|}}
+          <Comment::Display @comment={{comment}} />
+        {{/each}}
+
+        {{#if this.showCommentField}}
+          <Comment::Add
+            @onInput={{this.onInputComment}}
+            @onCancel={{this.onCancelComment}}
+            @onSave={{this.onSaveComment}}
+          />
+        {{/if}}
+      </div>
 
     {{else}}
       <p>invalid order id</p>
