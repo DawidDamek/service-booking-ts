@@ -1,5 +1,13 @@
+@import 'ember-modal-dialog/ember-modal-structure';
+@import 'ember-modal-dialog/ember-modal-appearance';
 @import 'bootstrap';
 
 body {
   background-color: #808484;
+}
+
+.modal-dialog {
+  margin: 0;
+  min-width: 30rem;
+  display: flex;
 }

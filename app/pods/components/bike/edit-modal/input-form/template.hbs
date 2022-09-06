@@ -1,0 +1,83 @@
+<div class='mx-auto my-3 card w-75'>
+  <ul class='list-group list-group-flush'>
+    <li class='list-group-item'>
+      <label
+        for='inputBrand'
+        class='col-sm-2 col-form-label w-100'
+      >Brand</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='inputBrand'
+        placeholder={{@bike.brand}}
+        {{on 'input' (fn @onPropertyChange 'brand')}}
+      />
+    </li>
+    <li class='list-group-item'>
+      <label
+        for='inputModel'
+        class='col-sm-2 col-form-label w-100'
+      >Model</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='inputModel'
+        placeholder={{@bike.model}}
+        {{on 'input' (fn @onPropertyChange 'model')}}
+      />
+    </li>
+
+    <li class='list-group-item'>
+      <label
+        for='inputColor'
+        class='col-sm-2 col-form-label w-100'
+      >Color</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='inputColor'
+        placeholder={{@bike.color}}
+        {{on 'input' (fn @onPropertyChange 'color')}}
+      />
+    </li>
+
+    <li class='list-group-item'>
+      <label
+        for='inputBrand'
+        class='col-sm-2 col-form-label w-100'
+      >Brand</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='inputSize'
+        placeholder={{@bike.size}}
+        {{on 'input' (fn @onPropertyChange 'size')}}
+      />
+    </li>
+
+    <li class='list-group-item'>
+      <label for='inputPhotoUrl' class='col-sm-2 col-form-label w-100'>Photo Url</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='inputPhotoUrl'
+        placeholder={{@bike.photoUrl}}
+        {{on 'input' (fn @onPropertyChange 'photoUrl')}}
+      />
+    </li>
+
+    <li class='list-group-item'>
+      <label
+        for='description'
+        class='col-sm-2 col-form-label w-100'
+      >Description</label>
+      <input
+        type='text'
+        class='form-control w-75'
+        id='description'
+        placeholder={{@bike.description}}
+        {{on 'input' (fn @onPropertyChange 'description')}}
+      />
+    </li>
+  </ul>
+</div>

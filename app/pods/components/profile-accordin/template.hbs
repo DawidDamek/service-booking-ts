@@ -51,9 +51,17 @@
       data-bs-parent='#accordionProfile'
     >
       <div class='accordion-body'>
-        <button class='btn btn-primary' type='button'>add bike</button>
+        <button
+          class='btn btn-primary'
+          type='button'
+          {{on 'click' this.onShowAddModalToggle}}
+        >add bike</button>
         <Bike::List @bikes={{@user.bikes}} />
       </div>
     </div>
   </div>
 </div>
+
+{{#if this.isShowAddModal}}
+  <Bike::AddModal @onToggle={{this.onShowAddModalToggle}} />
+{{/if}}

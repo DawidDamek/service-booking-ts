@@ -1,0 +1,12 @@
+<Modal
+  @title='Edit Bike'
+  @onSave={{this.onSave}}
+  @onCancel={{this.onCancel}}
+  @disabled={{this.isEmptyField}}
+>
+  <Bike::EditModal::InputForm
+    @bike={{@bike}}
+    @onPropertyChange={{this.onPropertyChange}}
+    @onToggle={{@onToggle}}
+  />
+</Modal>

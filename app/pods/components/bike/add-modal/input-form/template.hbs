@@ -1,0 +1,66 @@
+<div class='mb-3 row'>
+  <label for='inputBrand' class='col-sm-2 col-form-label'>Brand</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='inputBrand'
+      {{on 'input' (fn @onPropertyChange 'brand')}}
+    />
+  </div>
+</div>
+<div class='mb-3 row'>
+  <label for='inputModel' class='col-sm-2 col-form-label'>Model</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='inputModel'
+      {{on 'input' (fn @onPropertyChange 'model')}}
+    />
+  </div>
+</div>
+<div class='mb-3 row d-flex'>
+  <label for='inputSize' class='col-sm-2 col-form-label'>Size</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='inputSize'
+      {{on 'input' (fn @onPropertyChange 'size')}}
+    />
+  </div>
+</div>
+<div class='mb-3 row'>
+  <label for='inputColor' class='col-sm-2 col-form-label'>Color</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='inputColor'
+      {{on 'input' (fn @onPropertyChange 'color')}}
+    />
+  </div>
+</div>
+<div class='mb-3 row'>
+  <label for='inputPhotoUrl' class='col-sm-2 col-form-label'>PhotoUrl</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='inputPhotoUrl'
+      {{on 'input' (fn @onPropertyChange 'photoUrl')}}
+    />
+  </div>
+</div>
+<div class='mb-3 row'>
+  <label for='inputPhotoUrl' class='col-sm-2 col-form-label'>Description</label>
+  <div class='col-sm-10 d-flex justify-content-around'>
+    <input
+      type='text'
+      class='form-control w-75'
+      id='description'
+      {{on 'input' (fn @onPropertyChange 'description')}}
+    />
+  </div>
+</div>

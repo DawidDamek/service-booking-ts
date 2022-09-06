@@ -1,0 +1,23 @@
+<div class='mx-auto my-3 card w-75'>
+  <img src={{@bike.photoUrl}} class='card-img-top' alt='bike' />
+  <div class='card-body'>
+    <h5 class='card-title'>
+      {{@bike.brand}}
+      {{@bike.model}}</h5>
+  </div>
+  <ul class='list-group list-group-flush'>
+    <li class='list-group-item'>Color: {{@bike.color}}</li>
+    <li class='list-group-item'>Size: {{@bike.size}}</li>
+    <li class='list-group-item'>Description: {{@bike.description}}</li>
+  </ul>
+  <button
+    class='btn'
+    type='button'
+    {{on 'click' this.onShowEditModalToggle}}
+  >✏️</button>
+  <button class='btn' type='button' {{on 'click' this.onDeleteBike}}>🗑</button>
+</div>
+
+{{#if this.isShowEditModal}}
+  <Bike::EditModal @bike={{@bike}} @onToggle={{this.onShowEditModalToggle}} />
+{{/if}}
