@@ -1,0 +1,46 @@
+<form {{on 'submit' this.onSave}}>
+  <div class='input-group mb-3'>
+    <span
+      class='input-group-text w-25 text-wrap px-2'
+      id='inputDescription'
+    >{{@property}}</span>
+    <input
+      id='inputComment'
+      class='form-control {{if this.shouldNotEdit "pe-none"}}'
+      type='text'
+      aria-describedby='inputDescription'
+      value={{this.property}}
+      {{on 'input' (fn this.onPropertyChange @property)}}
+    />
+
+    {{#if this.isEditable}}
+      <button
+        class='btn btn-sm btn-outline-light'
+        type='button'
+        {{on 'click' this.onCancel}}
+      >
+        ✖️
+      </button>
+      <button
+        class='btn btn-sm btn-outline-light'
+        type='submit'
+        {{on 'click' this.onSave}}
+      >
+        ✔️
+      </button>
+
+    {{else}}
+
+      <button
+        class='btn btn-sm btn-outline-light'
+        type='button'
+        id='button'
+        {{on 'click' this.onEditPropertySwitch}}
+      >
+        ✏️
+      </button>
+
+    {{/if}}
+
+  </div>
+</form>
