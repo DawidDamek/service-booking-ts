@@ -9,13 +9,7 @@ interface BikeAddArgs {
   onToggle: Function;
 }
 
-type BikeType =
-  | 'brand'
-  | 'size'
-  | 'model'
-  | 'description'
-  | 'color'
-  | 'photoUrl';
+type EditableBikeTypes = Omit<Bike, 'owner' | 'orders' | 'issues'>;
 
 export default class BikeAdd extends Component<BikeAddArgs> {
   @service declare store: Store;
@@ -35,8 +29,12 @@ export default class BikeAdd extends Component<BikeAddArgs> {
   }
 
   @action
-  onPropertyChange(key: BikeType, { target }: { target: HTMLInputElement }) {
-    this.bike[key] = target.value;
+  onPropertyChange<T extends keyof EditableBikeTypes>(
+    key: T,
+    { target }: { target: HTMLInputElement }
+  ) {
+    const val = target.value as Bike[T];
+    this.bike[key] = val;
   }
 
   @action

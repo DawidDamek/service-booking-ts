@@ -18,7 +18,7 @@ export default class User extends Model {
   @attr
   declare email: string;
   @attr
-  declare phoneNumber: number;
+  declare phoneNumber: string;
   @hasMany('bike')
   declare bikes: AsyncHasMany<Bike>;
   @hasMany('order')

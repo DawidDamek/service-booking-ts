@@ -17,7 +17,7 @@ export default class Application extends Route {
       username: 'DD',
       password: 'dd123',
       email: 'dawid@dawid.com',
-      phoneNumber: 123456789,
+      phoneNumber: '123456789',
     };
     const customer1 = {
       isAdmin: false,
@@ -26,7 +26,7 @@ export default class Application extends Route {
       username: 'Piotrus',
       password: 'piotrus123',
       email: 'piter@kkk.com',
-      phoneNumber: 421593093,
+      phoneNumber: '421593093',
     };
 
     const adminModel = await this.store.createRecord('user', admin).save();
