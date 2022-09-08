@@ -1,0 +1,18 @@
+<div class='card w-75 mx-auto'>
+  <div class='card-header bg-secondary'>
+    Featured
+  </div>
+  <div class='card-body'>
+    <Order::BikeSelect
+      @bikes={{@user.bikes}}
+      @onInput={{this.onInput}}
+      @option={{this.option}}
+    />
+  </div>
+  <ul class='list-group list-group-flush'>
+    <li class='list-group-item'>Type of service</li>
+    <li class='list-group-item'>issue</li>
+    <li class='list-group-item'>date</li>
+  </ul>
+
+</div>
