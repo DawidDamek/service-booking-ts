@@ -1,0 +1,21 @@
+<form {{on 'submit' @onSave}}>
+  <div class='input-group mb-3'>
+    <input
+      id='inputIssue'
+      type='text'
+      class='form-control'
+      placeholder='Issue'
+      {{on 'input' @onInput}}
+    />
+    <button
+      class='btn btn-outline-light'
+      type='button'
+      {{on 'click' @onCancel}}
+    >
+      ✖️
+    </button>
+    <button class='btn btn-outline-light' type='submit' {{on 'click' @onSave}}>
+      ✔️
+    </button>
+  </div>
+</form>

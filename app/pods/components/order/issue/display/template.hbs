@@ -1,0 +1,9 @@
+<div class='input-group mb-3'>
+  {{! template-lint-disable require-input-label }}
+  <input class='form-control pe-none' type='text' value={{@issue.details}} />
+  <button
+    class='btn btn-outline-light'
+    type='button'
+    {{on 'click' this.onDeleteIssue}}
+  >✖️</button>
+</div>

@@ -10,6 +10,7 @@ import Bike from '../bike/model';
 import Comment from '../comment/model';
 
 export default class Order extends Model {
+  // eslint-disable-next-line no-unused-vars
   static filter(arg0: ({ id }: { id: string }) => boolean) {
     throw new Error('Method not implemented.');
   }

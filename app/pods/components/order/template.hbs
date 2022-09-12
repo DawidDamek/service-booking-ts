@@ -1,18 +1,61 @@
 <div class='card w-75 mx-auto'>
   <div class='card-header bg-secondary'>
-    Featured
+    New Order
   </div>
   <div class='card-body'>
     <Order::BikeSelect
-      @bikes={{@user.bikes}}
-      @onInput={{this.onInput}}
-      @option={{this.option}}
+      @options={{@user.bikes}}
+      @onChange={{this.onBikeInput}}
+      @selected={{this.bikeOption}}
     />
   </div>
   <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>Type of service</li>
-    <li class='list-group-item'>issue</li>
-    <li class='list-group-item'>date</li>
+    <li class='list-group-item'>
+      <Order::TypeSelect
+        @options={{this.types}}
+        @onChange={{this.onTypeInput}}
+        @selected={{this.typeOption}}
+      />
+    </li>
+    <li class='list-group-item'>
+      <div>Issues: </div>
+
+      {{#if this.issuesArr}}
+
+        {{#each this.issuesArr as |issue|}}
+          <Order::Issue::Display
+            @issue={{issue}}
+            @issuesArr={{this.issuesArr}}
+            @removeRecord={{this.removeRecord}}
+          />
+        {{/each}}
+      {{else}}
+        <div>
+          No issues added
+        </div>
+      {{/if}}
+
+      <button
+        class='btn btn-sm btn-primary'
+        type='button'
+        disabled={{this.shouldDisableButton}}
+        {{on 'click' this.onAddIssue}}
+      >
+        Add issue</button>
+
+      {{#if this.isShowIssueInput}}
+        <Order::Issue::Add
+          @onCancel={{this.onCancelIssue}}
+          @onInput={{this.onInputIssue}}
+          @onSave={{this.onSaveIssue}}
+        />
+      {{/if}}
+
+    </li>
+    <li class='list-group-item'>
+      <button class='btn btn-primary' type='button'>Submit</button>
+      <button class='btn btn-danger' type='button'>Cancel</button>
+    </li>
   </ul>
 
 </div>
