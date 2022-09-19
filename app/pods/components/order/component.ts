@@ -25,17 +25,11 @@ export default class OrderComponent extends Component {
     this.order = this.store.createRecord('order', {
       owner: this.session.currentUser,
       bike: null,
-      releaseDate: this.defaultReleaseDate,
     });
   }
 
   get noIssues() {
     return this.orderIssues.length;
-  }
-
-  get defaultReleaseDate() {
-    const date = new Date().setDate(new Date().getDate() + 7);
-    return new Date(date);
   }
 
   get shouldDisableButton() {
@@ -115,7 +109,7 @@ export default class OrderComponent extends Component {
       await issue.save();
     });
     await this.order.save();
-    this.order.rollbackAttributes();
+    this.order.set('releaseDate', this.order.defaultReleaseDate());
   }
 
   willDestroy() {

@@ -17,6 +17,8 @@ export default class Order extends Model {
   }
   @attr('string')
   declare type: string;
+  @attr('string', { defaultValue: 'Not completed' })
+  declare status: Date;
   @attr('date', { defaultValue: () => new Date() })
   declare acceptanceDate: Date;
   @attr('date', { defaultValue: () => new Date() }) declare releaseDate: Date;

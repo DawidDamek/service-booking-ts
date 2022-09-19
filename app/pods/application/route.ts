@@ -125,6 +125,7 @@ export default class Application extends Route {
       .createRecord('order', {
         owner: adminModel,
         bike: bike1Model,
+        status: 'Completed',
         type: 'service',
         acceptanceDate: new Date(2022, 8, 19),
         releaseDate: new Date(2022, 8, 26),
@@ -146,6 +147,7 @@ export default class Application extends Route {
         owner: customer1Model,
         bike: bike3Model,
         type: 'service',
+        status: 'Rejected',
         acceptanceDate: new Date(2022, 8, 19),
         releaseDate: new Date(2022, 8, 21),
       })

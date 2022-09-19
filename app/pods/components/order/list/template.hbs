@@ -6,8 +6,8 @@
     </div>
     <ul class='list-group list-group-flush'>
       <li class='list-group-item'>{{order.type}}</li>
-      <li class='list-group-item'>A second item</li>
-      <li class='list-group-item'>A third item</li>
+      <li class='list-group-item'>{{order.status}}</li>
+      <li class='list-group-item'>{{format-date order.releaseDate}}</li>
     </ul>
   </div>
 {{/each}}
