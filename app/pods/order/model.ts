@@ -8,6 +8,7 @@ import Model, {
 import User from '../user/model';
 import Bike from '../bike/model';
 import Comment from '../comment/model';
+import Issue from '../issue/model';
 
 export default class Order extends Model {
   // eslint-disable-next-line no-unused-vars
@@ -21,10 +22,17 @@ export default class Order extends Model {
   @attr('date', { defaultValue: () => new Date() }) declare releaseDate: Date;
   @hasMany('comment')
   declare comments: AsyncHasMany<Comment>;
+  @hasMany('issue')
+  declare issues: AsyncHasMany<Issue>;
   @belongsTo('user')
   declare owner: AsyncBelongsTo<User>;
   @belongsTo('bike')
   declare bike: AsyncBelongsTo<Bike>;
+
+  defaultReleaseDate() {
+    const date = new Date();
+    date.setDate(date.getDate() + 7);
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

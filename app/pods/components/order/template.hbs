@@ -2,46 +2,38 @@
   <div class='card-header bg-secondary'>
     New Order
   </div>
-  <div class='card-body'>
-    <Order::BikeSelect
-      @options={{@user.bikes}}
-      @onChange={{this.onBikeInput}}
-      @selected={{this.bikeOption}}
-    />
+  <div class='card-body d-flex justify-content-between'>
+    <div> Bike</div>
+    <div class='w-75'>
+      <Order::BikeSelect
+        @options={{@user.bikes}}
+        @onChange={{this.onBikeInput}}
+        @selected={{this.order.bike}}
+      />
+    </div>
   </div>
   <ul class='list-group list-group-flush'>
-    <li class='list-group-item'>
-      <Order::TypeSelect
-        @options={{this.types}}
-        @onChange={{this.onTypeInput}}
-        @selected={{this.typeOption}}
-      />
+    <li class='list-group-item d-flex justify-content-between'>
+      <div> type of service</div>
+      <div class='w-75'>
+        <Order::TypeSelect
+          @options={{this.serviceTypes}}
+          @onChange={{this.onTypeInput}}
+          @selected={{this.typeOption}}
+        />
+      </div>
     </li>
     <li class='list-group-item'>
-      <div>Issues: </div>
+      <div class='mb-2'>Issues: </div>
 
-      {{#if this.issuesArr}}
+      {{#each this.orderIssues as |issue|}}
+        <Order::Issue::Display
+          @issue={{issue}}
+          @orderIssues={{this.orderIssues}}
+          @deleteRecord={{this.deleteRecord}}
+        />
 
-        {{#each this.issuesArr as |issue|}}
-          <Order::Issue::Display
-            @issue={{issue}}
-            @issuesArr={{this.issuesArr}}
-            @removeRecord={{this.removeRecord}}
-          />
-        {{/each}}
-      {{else}}
-        <div>
-          No issues added
-        </div>
-      {{/if}}
-
-      <button
-        class='btn btn-sm btn-primary'
-        type='button'
-        disabled={{this.shouldDisableButton}}
-        {{on 'click' this.onAddIssue}}
-      >
-        Add issue</button>
+      {{/each}}
 
       {{#if this.isShowIssueInput}}
         <Order::Issue::Add
@@ -50,11 +42,28 @@
           @onSave={{this.onSaveIssue}}
         />
       {{/if}}
-
+      <div class='d-flex justify-content-end'>
+        <button
+          class='btn btn-sm btn-primary'
+          type='button'
+          disabled={{this.shouldDisableButton}}
+          {{on 'click' this.onAddIssue}}
+        >
+          Add issue</button>
+      </div>
     </li>
-    <li class='list-group-item'>
-      <button class='btn btn-primary' type='button'>Submit</button>
-      <button class='btn btn-danger' type='button'>Cancel</button>
+    <li class='list-group-item d-flex justify-content-between'>
+      <button
+        class='btn btn-danger'
+        type='button'
+        {{on 'click' this.onCancelOrder}}
+      >Cancel</button>
+      <button
+        class='btn btn-primary'
+        type='button'
+        disabled={{this.areEmptyFields}}
+        {{on 'click' this.onSaveOrder}}
+      >Submit</button>
     </li>
   </ul>
 
