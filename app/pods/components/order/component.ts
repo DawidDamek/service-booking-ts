@@ -7,10 +7,13 @@ import Bike from 'service-booking-ts/pods/bike/model';
 import Issue from 'service-booking-ts/pods/issue/model';
 import SessionService from 'service-booking-ts/pods/session/service';
 import Order from 'service-booking-ts/pods/order/model';
+import { Route } from '@ember/routing';
+import { later } from '@ember/runloop';
 
 export default class OrderComponent extends Component {
   @service declare store: Store;
   @service declare session: SessionService;
+  @service declare router: Route;
 
   @tracked declare typeOption: string;
   @tracked isShowIssueInput = false;
@@ -110,6 +113,13 @@ export default class OrderComponent extends Component {
     });
     await this.order.save();
     this.order.set('releaseDate', this.order.defaultReleaseDate());
+    later(
+      this,
+      () => {
+        this.router.transitionTo('/profile', {});
+      },
+      500
+    );
   }
 
   willDestroy() {

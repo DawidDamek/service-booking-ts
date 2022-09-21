@@ -1,8 +1,8 @@
-<div class='card w-75 mx-auto'>
-  <div class='card-header bg-secondary'>
+<div class='card w-75 mx-auto bg-secondary'>
+  <div class='card-header text-white bg-dark'>
     New Order
   </div>
-  <div class='card-body d-flex justify-content-between'>
+  <div class='card-body d-flex justify-content-between text-dark bg-secondary'>
     <div> Bike</div>
     <div class='w-75'>
       <Order::BikeSelect
@@ -12,8 +12,10 @@
       />
     </div>
   </div>
-  <ul class='list-group list-group-flush'>
-    <li class='list-group-item d-flex justify-content-between'>
+  <ul class='list-group list-group-flush text-dark bg-secondary'>
+    <li
+      class='list-group-item d-flex justify-content-between text-dark bg-secondary'
+    >
       <div> type of service</div>
       <div class='w-75'>
         <Order::TypeSelect
@@ -23,7 +25,7 @@
         />
       </div>
     </li>
-    <li class='list-group-item'>
+    <li class='list-group-item text-dark bg-secondary'>
       <div class='mb-2'>Issues: </div>
 
       {{#each this.orderIssues as |issue|}}
@@ -52,7 +54,9 @@
           Add issue</button>
       </div>
     </li>
-    <li class='list-group-item d-flex justify-content-between'>
+    <li
+      class='list-group-item d-flex justify-content-between text-dark bg-secondary'
+    >
       <button
         class='btn btn-danger'
         type='button'
