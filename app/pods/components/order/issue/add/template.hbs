@@ -12,11 +12,16 @@
       @label='✖️'
       @onClick={{@onCancel}}
     />
-    <Shared::Button
+
+    <button class='btn btn-outline-light' type='button' {{on 'click' @onSave}}>
+      ✔️
+    </button>
+
+    {{!-- <Shared::Button
       class='btn-outline-light'
-      type='submit'
+      @type='submit'
       @label='✔️'
       @onClick={{@onSave}}
-    />
+    /> --}}
   </div>
 </form>
