@@ -51,17 +51,17 @@
     {{/each}}
 
     <div class='d-flex justify-content-between'>
-      <button
-        class='btn btn-primary mt-2'
-        type='button'
-        {{on 'click' this.onAddComment}}
-      >Add comment</button>
+      <Shared::Button
+        class='btn-primary mt-2'
+        @label='Add comment'
+        @onClick={{this.onAddComment}}
+      />
+      <Shared::Button
+        class='btn-danger mt-2'
+        @label='Close'
+        @onClick={{@onClick}}
+      />
 
-      <button
-        class='btn btn-danger mt-2'
-        type='button'
-        {{on 'click' @onClick}}
-      >Close</button>
     </div>
   </div>
 </div>

@@ -9,21 +9,17 @@
           <span class='modal-body'>{{yield}}</span>
         </div>
         <div class='modal-footer d-flex justify-content-between'>
-          <button
+          <Shared::Button
             class='btn btn-danger mx-2'
-            type='button'
-            {{on 'click' @onCancel}}
-          >
-            Cancel
-          </button>
-          <button
+            @label='Cancel'
+            @onClick={{@onCancel}}
+          />
+          <Shared::Button
             class='btn btn-primary mx-2'
-            type='button'
+            @label='Save'
             disabled={{@disabled}}
-            {{on 'click' @onSave}}
-          >
-            Save
-          </button>
+            @onClick={{@onSave}}
+          />
         </div>
       </div>
     </div>

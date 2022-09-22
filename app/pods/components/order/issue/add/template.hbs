@@ -7,15 +7,16 @@
       placeholder='Issue'
       {{on 'input' @onInput}}
     />
-    <button
-      class='btn btn-outline-light'
-      type='button'
-      {{on 'click' @onCancel}}
-    >
-      ✖️
-    </button>
-    <button class='btn btn-outline-light' type='submit' {{on 'click' @onSave}}>
-      ✔️
-    </button>
+    <Shared::Button
+      class='btn-outline-light'
+      @label='✖️'
+      @onClick={{@onCancel}}
+    />
+    <Shared::Button
+      class='btn-outline-light'
+      type='submit'
+      @label='✔️'
+      @onClick={{@onSave}}
+    />
   </div>
 </form>

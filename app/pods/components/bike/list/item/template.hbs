@@ -10,12 +10,8 @@
     <li class='list-group-item'>Size: {{@bike.size}}</li>
     <li class='list-group-item'>Description: {{@bike.description}}</li>
   </ul>
-  <button
-    class='btn'
-    type='button'
-    {{on 'click' this.onShowEditModalToggle}}
-  >✏️</button>
-  <button class='btn' type='button' {{on 'click' this.onDeleteBike}}>🗑</button>
+  <Shared::Button @label='✏️' @onClick={{this.onShowEditModalToggle}} />
+  <Shared::Button @label='🗑' @onClick={{this.onDeleteBike}} />
 </div>
 
 {{#if this.isShowEditModal}}

@@ -77,7 +77,7 @@
     >
       <div class='accordion-body bg-secondary'>
         <LinkTo @route='home.order.new'>
-          <button class='btn btn-primary mb-2' type='button'>Add Order</button>
+          <Shared::Button class='btn-primary mb-2' @label='Add order' />
         </LinkTo>
         <Order::List @orders={{@user.orders}} />
       </div>

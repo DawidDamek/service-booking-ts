@@ -1,9 +1,9 @@
 <div class='input-group mb-3 bg-secondary' ...attributes>
   {{! template-lint-disable require-input-label }}
   <input class='form-control pe-none' type='text' value={{@issue.details}} />
-  <button
-    class='btn btn-outline-light'
-    type='button'
-    {{on 'click' this.onDeleteIssue}}
-  >✖️</button>
+  <Shared::Button
+    class='btn-outline-light'
+    @label='✖️'
+    @onClick={{this.onDeleteIssue}}
+  />
 </div>

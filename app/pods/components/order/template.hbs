@@ -45,29 +45,27 @@
         />
       {{/if}}
       <div class='d-flex justify-content-end'>
-        <button
-          class='btn btn-sm btn-primary'
-          type='button'
+        <Shared::Button
+          class='btn-sm btn-primary'
+          @label='Add issue'
           disabled={{this.shouldDisableButton}}
-          {{on 'click' this.onAddIssue}}
-        >
-          Add issue</button>
+          @onClick={{this.onAddIssue}}
+        />
       </div>
     </li>
     <li
       class='list-group-item d-flex justify-content-between text-dark bg-secondary'
     >
-      <button
-        class='btn btn-danger'
-        type='button'
-        {{on 'click' this.onCancelOrder}}
-      >Cancel</button>
-      <button
-        class='btn btn-primary'
-        type='button'
-        disabled={{this.areEmptyFields}}
-        {{on 'click' this.onSaveOrder}}
-      >Submit</button>
+      <Shared::Button
+        class='btn-danger'
+        @label='Cancel'
+        @onClick={{this.onCancelOrder}}
+      />
+      <Shared::Button
+        class='btn-primary'
+        @label='Submit'
+        @onClick={{this.onSaveOrder}}
+      />
     </li>
   </ul>
 
