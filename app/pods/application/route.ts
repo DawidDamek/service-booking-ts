@@ -73,55 +73,7 @@ export default class Application extends Route {
       })
       .save();
 
-    await this.store
-      .createRecord('issue', {
-        details: 'amortyzator nie działa',
-        status: 'inProgress',
-        bike: bike1Model,
-      })
-      .save();
-
-    await this.store
-      .createRecord('issue', {
-        details: 'umyć całość',
-        status: 'done',
-        bike: bike1Model,
-      })
-      .save();
-
-    await this.store
-      .createRecord('issue', {
-        details: 'wszytsko czeszczy',
-        status: 'toDo',
-        bike: bike3Model,
-      })
-      .save();
-
-    await this.store
-      .createRecord('issue', {
-        details: 'odrdzewic',
-        status: 'rejected',
-        bike: bike3Model,
-      })
-      .save();
-
-    await this.store
-      .createRecord('issue', {
-        details: 'full spa',
-        status: 'toDo',
-        bike: bike3Model,
-      })
-      .save();
-
-    await this.store
-      .createRecord('issue', {
-        details: 'full spa',
-        status: 'toDo',
-        bike: bike2Model,
-      })
-      .save();
-
-    await this.store
+    const order1Model = await this.store
       .createRecord('order', {
         owner: adminModel,
         bike: bike1Model,
@@ -132,7 +84,7 @@ export default class Application extends Route {
       })
       .save();
 
-    await this.store
+    const order2Model = await this.store
       .createRecord('order', {
         owner: adminModel,
         bike: bike2Model,
@@ -150,6 +102,60 @@ export default class Application extends Route {
         status: 'Rejected',
         acceptanceDate: new Date(2022, 8, 19),
         releaseDate: new Date(2022, 8, 21),
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'amortyzator nie działa',
+        status: 'inProgress',
+        bike: bike1Model,
+        order: order1Model,
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'umyć całość',
+        status: 'done',
+        bike: bike1Model,
+        order: order1Model,
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'full spa',
+        status: 'toDo',
+        bike: bike2Model,
+        order: order2Model,
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'wszytsko czeszczy',
+        status: 'toDo',
+        bike: bike3Model,
+        order: order3Model,
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'odrdzewic',
+        status: 'rejected',
+        bike: bike3Model,
+        order: order3Model,
+      })
+      .save();
+
+    await this.store
+      .createRecord('issue', {
+        details: 'full spa',
+        status: 'toDo',
+        bike: bike3Model,
+        order: order3Model,
       })
       .save();
 
