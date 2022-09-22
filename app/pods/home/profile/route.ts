@@ -12,9 +12,7 @@ export default class HomeProfile extends Route {
     return RSVP.hash({
       bikes: this.store.findAll('bike'),
       user: this.session.currentUser,
-      issues: this.store.findAll('issue'),
       orders: this.store.findAll('order'),
-      comments: this.store.findAll('comment'),
     });
   }
 }
