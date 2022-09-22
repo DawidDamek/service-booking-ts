@@ -11,6 +11,7 @@ Router.map(function () {
     this.route('profile');
     this.route('order', function () {
       this.route('new');
+      this.route('show', { path: '/:id' });
     });
   });
   this.route('login');

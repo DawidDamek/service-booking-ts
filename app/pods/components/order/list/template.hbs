@@ -1,5 +1,5 @@
 {{#each @orders as |order|}}
-  <div class='card w-75'>
+  <div class='card w-75 mb-2 mx-auto'>
     <div class='card-header'>
       {{order.bike.brand}}
       {{order.bike.model}}
@@ -8,6 +8,9 @@
       <li class='list-group-item'>{{order.type}}</li>
       <li class='list-group-item'>{{order.status}}</li>
       <li class='list-group-item'>{{format-date order.releaseDate}}</li>
+      <li class='list-group-item'>
+        <LinkTo @route='home.order.show' @model={{order.id}}>check</LinkTo>
+      </li>
     </ul>
   </div>
 {{/each}}

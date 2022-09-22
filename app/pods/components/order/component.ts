@@ -31,6 +31,10 @@ export default class OrderComponent extends Component {
     });
   }
 
+  get user() {
+    return this.session.currentUser;
+  }
+
   get noIssues() {
     return this.orderIssues.length;
   }

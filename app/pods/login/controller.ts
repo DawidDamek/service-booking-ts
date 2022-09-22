@@ -32,7 +32,6 @@ export default class Login extends Controller {
     const user = users.firstObject;
     this.session.loginUser(user?.id || null);
     window.location.href = '/';
-    console.log(this.session.currentUser);
   }
 }
 

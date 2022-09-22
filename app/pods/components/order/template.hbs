@@ -6,7 +6,7 @@
     <div> Bike</div>
     <div class='w-75'>
       <Order::BikeSelect
-        @options={{@user.bikes}}
+        @options={{this.user.bikes}}
         @onChange={{this.onBikeInput}}
         @selected={{this.order.bike}}
       />

@@ -1,0 +1,64 @@
+<div class='card w-75 mx-auto bg-secondary mt-3'>
+  <div class='card-header text-white bg-dark'>
+    Order ID:
+    {{@model.order.id}}
+  </div>
+  <div class='card-body'>
+
+    <h3>{{@model.order.owner.name}} {{@model.order.owner.surname}}</h3>
+    <h5>
+      Bike:
+      {{@model.order.bike.brand}}
+      {{@model.order.bike.model}}
+    </h5>
+    <p class='d-flex justify-content-around'>
+      <span>
+        Acceptance date:
+        {{format-date @model.order.acceptanceDate}}
+      </span>
+      <span>
+        Aproximated release date
+        {{format-date @model.order.releaseDate}}
+      </span>
+    </p>
+    <div class='d-flex flex-column justify-content-between my-2'>
+      <h3>Issues: </h3>
+      <ul class='list-group rounded'>
+        {{#each @model.order.issues as |issue|}}
+          <li class='list-group-item d-flex justify-content-between'>
+            {{issue.details}}
+            <b>{{issue.status}}</b>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+
+    <div class='d-flex flex-column justify-content-between my-2'>
+      <h3> Comments: </h3>
+      {{#each @model.order.comments as |comment|}}
+        <Comment::Display @comment={{comment}} />
+      {{/each}}
+      {{#if this.showCommentField}}
+        <Comment::Add
+          @onInput={{this.onInputComment}}
+          @onCancel={{this.onCancelComment}}
+          @onSave={{this.onSaveComment}}
+        />
+      {{/if}}
+    </div>
+
+    <div class='d-flex justify-content-between mb-2'>
+      <Shared::Button
+        class='btn-primary'
+        @label='Add Comment'
+        @onClick={{this.onAddComment}}
+      />
+    </div>
+
+    <LinkTo @route='home.profile'>
+      <Shared::Button class='btn-primary' @label='Back' />
+    </LinkTo>
+
+  </div>
+</div>
+{{!-- {{/if}} --}}
