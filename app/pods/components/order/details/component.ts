@@ -19,6 +19,10 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   @tracked showCommentField = false;
   @tracked order = this.args.model.order;
 
+  get shouldBeDisabledButton() {
+    return !this.comment;
+  }
+
   @action
   onInputComment({ target }: { target: HTMLInputElement }) {
     this.comment = target.value;

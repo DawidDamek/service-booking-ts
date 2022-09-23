@@ -29,7 +29,6 @@
           </li>
         {{/each}}
       </ul>
-
       <div class='d-flex flex-column justify-content-between my-2'>
         <h3> Comments: </h3>
         {{#each order.comments as |comment|}}
@@ -41,6 +40,7 @@
             @onInput={{this.onInputComment}}
             @onCancel={{this.onCancelComment}}
             @onSave={{this.onSaveComment}}
+            @shouldBeDisabled={{this.shouldBeDisabledButton}}
           />
         {{/if}}
       </div>

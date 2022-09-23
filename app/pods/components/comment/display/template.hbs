@@ -1,5 +1,9 @@
 <div class='input-group mb-3'>
   {{! template-lint-disable require-input-label }}
   <input class='form-control pe-none' type='text' value={{@comment.content}} />
-  <Shared::Button @label='✖️' @onClick={{this.onDeleteComment}} />
+  <Shared::Button
+    class='btn-outline-light'
+    @label='✖️'
+    @onClick={{this.onDeleteComment}}
+  />
 </div>

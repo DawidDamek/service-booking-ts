@@ -17,7 +17,12 @@
           {{on 'input' @onInput}}
         />
       </div>
-      <Shared::Button class='btn btn-primary' type='submit' @label='Check' />
+      <Shared::Button
+        class='btn btn-primary'
+        @type='submit'
+        @label='Check'
+        @onClick={{@onSubmit}}
+      />
     </form>
   </div>
 </div>

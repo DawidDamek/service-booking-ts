@@ -21,6 +21,10 @@ export default class ShowOrder extends Component<ShowOrderArgs> {
   @tracked declare comment: string;
   @tracked showCommentField = false;
 
+  get shouldBeDisabledButton() {
+    return !this.comment;
+  }
+
   @action
   onInputComment({ target }: { target: HTMLInputElement }) {
     this.comment = target.value;
