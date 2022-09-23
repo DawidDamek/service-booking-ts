@@ -30,6 +30,10 @@ export default class Bike extends Model {
   @hasMany('issue') declare issues: AsyncHasMany<Issue>;
   @hasMany('order')
   declare orders: AsyncHasMany<Order>;
+
+  get fullName() {
+    return `${this.brand} ${this.model}`;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

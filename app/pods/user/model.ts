@@ -25,6 +25,10 @@ export default class User extends Model {
   declare orders: AsyncHasMany<Order>;
   @hasMany('comments')
   declare comments: AsyncHasMany<Comment>;
+
+  get fullName() {
+    return `${this.name} ${this.surname}`;
+  }
 }
 
 // DO NOT DELETE: this is how TypeScript knows how to look up your models.

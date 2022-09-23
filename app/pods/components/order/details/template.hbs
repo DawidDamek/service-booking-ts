@@ -5,11 +5,10 @@
   </div>
   <div class='card-body'>
 
-    <h3>{{@model.order.owner.name}} {{@model.order.owner.surname}}</h3>
+    <h3>{{@model.order.owner.fullName}}</h3>
     <h5>
       Bike:
-      {{@model.order.bike.brand}}
-      {{@model.order.bike.model}}
+      {{@model.order.bike.fullName}}
     </h5>
     <p class='d-flex justify-content-around'>
       <span>
@@ -61,4 +60,3 @@
 
   </div>
 </div>
-{{!-- {{/if}} --}}
