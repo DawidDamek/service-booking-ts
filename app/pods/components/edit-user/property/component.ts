@@ -30,7 +30,6 @@ export default class EditUserProperty extends Component<EditUserPropertyArgs> {
 
   @action
   onSave(event: TransitionEvent) {
-    event.preventDefault();
     const target = event.target as HTMLInputElement;
     target.focus();
     this.currentUser.save();

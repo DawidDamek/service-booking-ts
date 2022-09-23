@@ -23,8 +23,7 @@ export default class Login extends Controller {
   }
 
   @action
-  async onSubmit(event: TransitionEvent) {
-    event.preventDefault();
+  async onSubmit() {
     const users = await this.store.query('user', {
       filter: { username: this.loginValue, password: this.passwordValue },
     });

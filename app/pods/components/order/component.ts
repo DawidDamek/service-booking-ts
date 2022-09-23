@@ -79,8 +79,7 @@ export default class OrderComponent extends Component {
   }
 
   @action
-  onSaveIssue(event: TransitionEvent) {
-    event.preventDefault();
+  onSaveIssue() {
     this.store.createRecord('issue', {
       owner: this.session.currentUser,
       bike: this.order.bike,

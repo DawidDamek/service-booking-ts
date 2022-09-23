@@ -19,17 +19,12 @@
         @label='✖️'
         @onClick={{this.onCancel}}
       />
-      <button
-        class='btn btn-sm btn-outline-light'
-        type='submit'
-        {{on 'click' this.onSave}}
-      >✔️</button>
-      {{!-- <Shared::Button
+      <Shared::Button
         class='btn-sm btn-outline-light'
         @type='submit'
         @label='✔️'
         @onClick={{this.onSave}}
-      /> --}}
+      />
     {{else}}
       <Shared::Button
         id='button'

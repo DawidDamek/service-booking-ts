@@ -12,7 +12,10 @@ export default class SharedButton extends Component<SharedButtonArgs> {
   }
 
   @action
-  onClick() {
+  onClick(event: TransitionEvent) {
+    if (this.type === 'submit') {
+      event.preventDefault();
+    }
     this.args?.onClick?.();
   }
 }

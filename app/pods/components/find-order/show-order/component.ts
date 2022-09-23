@@ -27,8 +27,7 @@ export default class ShowOrder extends Component<ShowOrderArgs> {
   }
 
   @action
-  async onSaveComment(event: TransitionEvent) {
-    event.preventDefault();
+  async onSaveComment() {
     const order = await this.store.findRecord('order', this.args.orderId);
     await this.store
       .createRecord('comment', {

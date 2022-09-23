@@ -24,8 +24,7 @@ export default class FindOrder extends Component<FindOrderArgs> {
   }
 
   @action
-  onShowOrder(event: TransitionEvent) {
-    event.preventDefault();
+  onShowOrder() {
     this.isShowOrder = true;
   }
 

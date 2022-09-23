@@ -25,8 +25,7 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   }
 
   @action
-  async onSaveComment(event: TransitionEvent) {
-    event.preventDefault();
+  async onSaveComment() {
     const order = this.args.model.order;
     await this.store
       .createRecord('comment', {
