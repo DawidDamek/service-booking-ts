@@ -5,6 +5,7 @@ import { inject as service } from '@ember/service';
 import Order from 'service-booking-ts/pods/order/model';
 import SessionService from 'service-booking-ts/pods/session/service';
 import Store from '@ember-data/store';
+import { Route } from '@ember/routing';
 
 interface OrderDetailsArgs {
   model: {
@@ -14,6 +15,7 @@ interface OrderDetailsArgs {
 
 export default class OrderDetails extends Component<OrderDetailsArgs> {
   @service declare store: Store;
+  @service declare router: Route;
   @service declare session: SessionService;
   @tracked declare comment: string;
   @tracked showCommentField = false;
@@ -21,6 +23,10 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
 
   get shouldBeDisabledButton() {
     return !this.comment;
+  }
+
+  get isAdmin() {
+    return this.session.currentUser.isAdmin;
   }
 
   @action
@@ -52,8 +58,9 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
     this.showCommentField = true;
   }
 
-  // didInsertBike(element: HTMLElement) {
-  //   // const {brand, model} = this.args.model.order.bike
-  //   element.textContent = `${this.args.model}`;
-  // }
+  @action
+  deleteOrder() {
+    this.router.transitionTo('/profile', {});
+    this.args.model.order.destroyRecord();
+  }
 }

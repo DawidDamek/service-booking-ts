@@ -56,11 +56,16 @@
     <li
       class='list-group-item d-flex justify-content-between text-dark bg-secondary'
     >
-      <Shared::Button
-        class='btn-danger'
-        @label='Cancel'
-        @onClick={{this.onCancelOrder}}
-      />
+      <div>
+        <LinkTo @route='home.profile'>
+          <Shared::Button class='btn-primary' @label='Back to profile' />
+        </LinkTo>
+        <Shared::Button
+          class='btn-danger'
+          @label='Rollback'
+          @onClick={{this.onCancelOrder}}
+        />
+      </div>
       <Shared::Button
         class='btn-primary'
         @label='Submit'

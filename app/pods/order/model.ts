@@ -11,6 +11,7 @@ import Comment from '../comment/model';
 import Issue from '../issue/model';
 
 export default class Order extends Model {
+  static destroyRecord() {}
   // eslint-disable-next-line no-unused-vars
   static filter(arg0: ({ id }: { id: string }) => boolean) {
     throw new Error('Method not implemented.');

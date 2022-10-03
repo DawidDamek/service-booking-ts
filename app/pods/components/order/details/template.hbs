@@ -1,7 +1,16 @@
 <div class='card w-75 mx-auto bg-secondary mt-3'>
-  <div class='card-header text-white bg-dark'>
-    Order ID:
-    {{@model.order.id}}
+  <div class='card-header text-white bg-dark d-flex justify-content-between'>
+    <span class='align-self-center'>
+      Order ID:
+      {{@model.order.id}}
+    </span>
+    {{#if this.isAdmin}}
+      <Shared::Button
+        class='btn-danger btn-sm'
+        @label='Delete'
+        @onClick={{this.deleteOrder}}
+      />
+    {{/if}}
   </div>
   <div class='card-body'>
 
