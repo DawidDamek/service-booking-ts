@@ -11,7 +11,7 @@ interface OrderIssueDisplayComponentArgs {
 export default class OrderIssueDisplayComponent extends Component<OrderIssueDisplayComponentArgs> {
   @tracked isEditing = false;
   @tracked selected = this.args.issue.status;
-  issueStatuses = ['In progress', 'Done', 'Rejected'];
+  issueStatuses = ['In progress', 'Done', 'Rejected', 'To do'];
 
   @action
   onDeleteIssue() {

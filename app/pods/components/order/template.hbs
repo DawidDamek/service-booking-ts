@@ -28,14 +28,16 @@
     <li class='list-group-item text-dark bg-secondary'>
       <div class='mb-2'>Issues: </div>
 
-      {{#each this.orderIssues as |issue|}}
-        <Order::Issue::Display
-          @issue={{issue}}
-          @orderIssues={{this.orderIssues}}
-          @deleteRecord={{this.deleteRecord}}
-        />
-
-      {{/each}}
+      <ul class='list-group rounded'>
+        {{#each this.orderIssues as |issue|}}
+          <Order::Issue::Display
+            @isPossibleToDelete={{@isPossibleToDelete}}
+            @issue={{issue}}
+            @orderIssues={{this.orderIssues}}
+            @deleteRecord={{this.deleteRecord}}
+          />
+        {{/each}}
+      </ul>
 
       {{#if this.isShowIssueInput}}
         <Order::Issue::Add

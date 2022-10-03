@@ -1,4 +1,6 @@
-<li class='list-group-item d-flex justify-content-between align-items-center'>
+<li
+  class='list-group-item d-flex justify-content-between align-items-center p-1'
+>
   {{@issue.details}}
 
   <span class='select-container'>
@@ -13,7 +15,7 @@
           {{issue}}
         </PowerSelect>
       {{else}}
-        <span class='d-flex justify-content-end'>
+        <span class='d-flex justify-content-end align-items-center'>
           <b class='mx-1'>{{@issue.status}}</b>
           <Shared::Button
             class='btn-sm btn-outline-light'
@@ -24,12 +26,16 @@
       {{/if}}
 
     {{else}}
-      {{@issue.status}}
-      <Shared::Button
-        class='btn-outline-light'
-        @label='✖️'
-        @onClick={{this.onDeleteIssue}}
-      />
+      <span class='d-flex justify-content-end align-items-center'>
+        <b class='mx-1'>{{@issue.status}}</b>
+        {{#if @isPossibleToDelete}}
+          <Shared::Button
+            class='btn-sm btn-secondary'
+            @label='✕'
+            @onClick={{this.onDeleteIssue}}
+          />
+        {{/if}}
+      </span>
     {{/if}}
   </span>
 </li>
