@@ -13,6 +13,8 @@ Router.map(function () {
       this.route('new');
       this.route('show', { path: '/:id' });
     });
+    this.route('orders');
+    this.route('admin');
   });
   this.route('login');
   this.route('register');

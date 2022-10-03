@@ -1,0 +1,17 @@
+<table class='table table-dark table-striped table-hover w-75 mx-auto'>
+  <thead>
+    <tr>
+      <th scope='col'>#</th>
+      <th scope='col'>Bike</th>
+      <th scope='col'>Type</th>
+      <th scope='col'>Acceptance date</th>
+      <th scope='col'>Release date</th>
+      <th scope='col'>Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each @orders as |order|}}
+      <OrdersTable::Row @order={{order}} />
+    {{/each}}
+  </tbody>
+</table>

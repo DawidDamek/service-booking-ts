@@ -1,0 +1,7 @@
+<h1>All orders</h1>
+
+<LinkTo @route='home.admin'>
+  <Shared::Button class='btn-primary' @label='Admin panel' />
+</LinkTo>
+
+<OrdersTable @orders={{this.model.orders}} />
