@@ -1,9 +1,35 @@
-<div class='input-group mb-3 bg-secondary' ...attributes>
-  {{! template-lint-disable require-input-label }}
-  <input class='form-control pe-none' type='text' value={{@issue.details}} />
-  <Shared::Button
-    class='btn-outline-light'
-    @label='✖️'
-    @onClick={{this.onDeleteIssue}}
-  />
-</div>
+<li class='list-group-item d-flex justify-content-between align-items-center'>
+  {{@issue.details}}
+
+  <span class='select-container'>
+    {{#if @isAdminView}}
+      {{#if this.isEditing}}
+        <PowerSelect
+          @selected={{this.selected}}
+          @options={{this.issueStatuses}}
+          @onChange={{this.onChange}}
+          as |issue|
+        >
+          {{issue}}
+        </PowerSelect>
+      {{else}}
+        <span class='d-flex justify-content-end'>
+          <b class='mx-1'>{{@issue.status}}</b>
+          <Shared::Button
+            class='btn-sm btn-outline-light'
+            @label='✏️'
+            @onClick={{this.onEditStatus}}
+          />
+        </span>
+      {{/if}}
+
+    {{else}}
+      {{@issue.status}}
+      <Shared::Button
+        class='btn-outline-light'
+        @label='✖️'
+        @onClick={{this.onDeleteIssue}}
+      />
+    {{/if}}
+  </span>
+</li>

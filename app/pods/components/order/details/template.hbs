@@ -33,10 +33,10 @@
       <h3>Issues: </h3>
       <ul class='list-group rounded'>
         {{#each @model.order.issues as |issue|}}
-          <li class='list-group-item d-flex justify-content-between'>
-            {{issue.details}}
-            <b>{{issue.status}}</b>
-          </li>
+          <Order::Issue::Display
+            @issue={{issue}}
+            @isAdminView={{this.isAdmin}}
+          />
         {{/each}}
       </ul>
     </div>
