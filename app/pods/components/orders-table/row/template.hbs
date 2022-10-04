@@ -1,7 +1,10 @@
 <tr>
   <th scope='row'>
     <LinkTo @route='home.order.show' @model={{@order.id}}>
-      <Shared::Button class='btn-outline-light' @label={{@order.id}} />
+      <Shared::Button
+        class={{concat 'btn-outline-' this.statusColorClass}}
+        @label={{@order.id}}
+      />
     </LinkTo>
   </th>
   <td>{{@order.bike.fullName}}</td>
