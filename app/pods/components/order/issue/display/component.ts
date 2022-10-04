@@ -29,6 +29,8 @@ export default class OrderIssueDisplayComponent extends Component<OrderIssueDisp
     const { issue } = this.args;
     this.selected = selected;
     issue.set('status', selected);
+    selected === 'In progress' ? ((await issue.order).status = selected) : null;
+    (await issue.order).save();
     await issue.save();
     this.isEditing = !this.isEditing;
   }
