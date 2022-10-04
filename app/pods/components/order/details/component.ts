@@ -6,10 +6,12 @@ import Order from 'service-booking-ts/pods/order/model';
 import SessionService from 'service-booking-ts/pods/session/service';
 import Store from '@ember-data/store';
 import { Route } from '@ember/routing';
+import Issue from 'service-booking-ts/pods/issue/model';
 
 interface OrderDetailsArgs {
   model: {
-    order: typeof Order;
+    order: Order;
+    issues: Issue;
   };
 }
 
@@ -21,12 +23,24 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   @tracked showCommentField = false;
   @tracked order = this.args.model.order;
 
+  get currentOrder() {
+    return this.args.model.order;
+  }
+
   get shouldBeDisabledButton() {
     return !this.comment;
   }
 
   get isAdmin() {
     return this.session.currentUser.isAdmin;
+  }
+
+  get cannotBeCompleted() {
+    const { issues } = this.currentOrder;
+    const allowedStatusesArr = ['Done', 'Rejected'];
+    return issues.filter(({ status }) => {
+      return !allowedStatusesArr.includes(status);
+    }).length;
   }
 
   @action
@@ -36,11 +50,10 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
 
   @action
   async onSaveComment() {
-    const order = this.args.model.order;
     await this.store
       .createRecord('comment', {
         owner: this.session.currentUser,
-        order: order,
+        order: this.currentOrder,
         content: this.comment,
       })
       .save();
@@ -61,6 +74,12 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   @action
   deleteOrder() {
     this.router.transitionTo('/profile', {});
-    this.args.model.order.destroyRecord();
+    this.currentOrder.destroyRecord();
+  }
+
+  @action
+  async onChangeOrderStatus(status: string) {
+    this.currentOrder.status = status;
+    await this.currentOrder.save();
   }
 }

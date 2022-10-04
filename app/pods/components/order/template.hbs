@@ -59,9 +59,7 @@
       class='list-group-item d-flex justify-content-between text-dark bg-secondary'
     >
       <div>
-        <LinkTo @route='home.profile'>
-          <Shared::Button class='btn-primary' @label='Back to profile' />
-        </LinkTo>
+        <Shared::BackButton class='btn-primary' />
         <Shared::Button
           class='btn-danger'
           @label='Rollback'
@@ -77,5 +75,3 @@
   </ul>
 
 </div>
-
-<Shared::BackButton class='btn-primary' />

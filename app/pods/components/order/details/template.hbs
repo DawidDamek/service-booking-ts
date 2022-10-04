@@ -4,6 +4,7 @@
       Order ID:
       {{@model.order.id}}
     </span>
+    <span> Order status: {{@model.order.status}}</span>
     {{#if this.isAdmin}}
       <Shared::Button
         class='btn-danger btn-sm'
@@ -64,7 +65,20 @@
       />
     </div>
 
-    <Shared::BackButton class='btn-primary' />
+    <div>
+      <Shared::BackButton class='btn-primary' />
+      <Shared::Button
+        class='btn-danger'
+        @label='Reject'
+        @onClick={{fn this.onChangeOrderStatus 'Rejected'}}
+      />
+      <Shared::Button
+        class='btn-success'
+        disabled={{this.cannotBeCompleted}}
+        @label='Complete'
+        @onClick={{fn this.onChangeOrderStatus 'Completed'}}
+      />
+    </div>
 
   </div>
 </div>
