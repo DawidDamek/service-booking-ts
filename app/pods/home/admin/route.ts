@@ -6,9 +6,12 @@ import RSVP from 'rsvp';
 export default class HomeAdmin extends Route {
   @service declare store: Store;
 
-  model() {
+  async model() {
     return RSVP.hash({
-      orders: this.store.findAll('order'),
+      orders: await this.store.findAll('order'),
+      issues: await this.store.findAll('issue'),
+      comments: await this.store.findAll('comment'),
+      bikes: await this.store.findAll('bike'),
     });
   }
 }

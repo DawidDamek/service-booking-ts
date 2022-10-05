@@ -11,6 +11,10 @@ import Comment from '../comment/model';
 import Issue from '../issue/model';
 
 export default class Order extends Model {
+  // eslint-disable-next-line no-unused-vars
+  map(arg0: (order: any) => any): Iterable<unknown> | null | undefined {
+    throw new Error('Method not implemented.');
+  }
   static destroyRecord() {}
   // eslint-disable-next-line no-unused-vars
   static filter(arg0: ({ id }: { id: string }) => boolean) {
@@ -18,7 +22,7 @@ export default class Order extends Model {
   }
   @attr('string')
   declare type: string;
-  @attr('string', { defaultValue: 'Not completed' })
+  @attr('string', { defaultValue: 'New' })
   declare status: string;
   @attr('date', { defaultValue: () => new Date() })
   declare acceptanceDate: Date;
