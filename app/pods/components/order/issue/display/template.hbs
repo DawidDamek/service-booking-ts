@@ -1,41 +1,54 @@
 <li
-  class='list-group-item d-flex justify-content-between align-items-center p-1'
+  class='list-group-item d-flex justify-content-between align-items-center p-0 mb-2'
 >
-  {{@issue.details}}
+  <div class='input-group'>
 
-  <span class='select-container'>
+    <input
+      id='issue-display'
+      type='text'
+      class='form-control'
+      aria-describedby='issue-button'
+      value={{@issue.details}}
+    />
+
     {{#if @isAdminView}}
       {{#if this.isEditing}}
-        <PowerSelect
-          @selected={{this.selected}}
-          @options={{this.issueStatuses}}
-          @onChange={{this.onChange}}
-          as |issue|
-        >
-          {{issue}}
-        </PowerSelect>
-      {{else}}
-        <span class='d-flex justify-content-end align-items-center'>
-          <b class='mx-1'>{{@issue.status}}</b>
-          <Shared::Button
-            class='btn-sm btn-outline-light'
-            @label='✏️'
-            @onClick={{this.onEditStatus}}
-          />
+        <span class='input-group-text select-container' for='issue-display'>
+          <PowerSelect
+            class='w-100'
+            @selected={{this.selected}}
+            @options={{this.issueStatuses}}
+            @onChange={{this.onChange}}
+            as |issue|
+          >
+            {{issue}}
+          </PowerSelect>
         </span>
+
+      {{else}}
+        <label class='input-group-text' for='issue-display'>
+          <b>{{@issue.status}}</b></label>
+        <Shared::Button
+          class='btn-sm btn-outline-light'
+          @label='✏️'
+          @onClick={{this.onEditStatus}}
+        />
+
       {{/if}}
 
     {{else}}
-      <span class='d-flex justify-content-end align-items-center'>
-        <b class='mx-1'>{{@issue.status}}</b>
-        {{#if @isPossibleToDelete}}
-          <Shared::Button
-            class='btn-sm btn-secondary'
-            @label='✕'
-            @onClick={{this.onDeleteIssue}}
-          />
-        {{/if}}
-      </span>
+      <label class='input-group-text' for='issue-display'>
+        <b>{{@issue.status}}</b></label>
+
+      {{#if @isPossibleToDelete}}
+        <Shared::Button
+          id='issue-button'
+          class='btn-secondary'
+          @label='✖️'
+          @onClick={{this.onDeleteIssue}}
+        />
+      {{/if}}
+
     {{/if}}
-  </span>
+  </div>
 </li>

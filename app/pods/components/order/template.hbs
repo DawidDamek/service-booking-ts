@@ -28,7 +28,7 @@
     <li class='list-group-item text-dark bg-secondary'>
       <div class='mb-2'>Issues: </div>
 
-      <ul class='list-group rounded'>
+      <ul class='list-group'>
         {{#each this.orderIssues as |issue|}}
           <Order::Issue::Display
             @isPossibleToDelete={{@isPossibleToDelete}}
