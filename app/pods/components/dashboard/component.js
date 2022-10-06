@@ -8,7 +8,6 @@ export default class Dashboard extends Component {
 
   get ordersToday() {
     const today = new Date();
-    console.log('a');
     return this.orders.filter((order) => {
       return this.formatDate(order.releaseDate) === this.formatDate(today);
     });
