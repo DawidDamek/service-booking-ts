@@ -15,6 +15,10 @@ interface OrderDetailsArgs {
   };
 }
 
+type flatpickrRefInstance = {
+  selectedDates: any;
+};
+
 export default class OrderDetails extends Component<OrderDetailsArgs> {
   @service declare store: Store;
   @service declare router: Route;
@@ -22,6 +26,7 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   @tracked declare comment: string;
   @tracked showCommentField = false;
   @tracked order = this.args.model.order;
+  @tracked declare flatpickrRef: flatpickrRefInstance;
 
   get currentOrder() {
     return this.args.model.order;
@@ -81,5 +86,20 @@ export default class OrderDetails extends Component<OrderDetailsArgs> {
   async onChangeOrderStatus(status: string) {
     this.currentOrder.status = status;
     await this.currentOrder.save();
+  }
+
+  @action
+  async inputDate() {
+    this.currentOrder.releaseDate = this.flatpickrRef.selectedDates[0];
+    await this.currentOrder.save();
+  }
+
+  @action
+  onReady(
+    _selectedDates: object,
+    _dateStr: string,
+    instance: flatpickrRefInstance
+  ) {
+    this.flatpickrRef = instance;
   }
 }
