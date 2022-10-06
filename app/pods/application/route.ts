@@ -101,7 +101,7 @@ export default class Application extends Route {
         type: 'service',
         status: 'Rejected',
         acceptanceDate: new Date(2022, 8, 19),
-        releaseDate: new Date(2022, 8, 21),
+        releaseDate: new Date(2022, 9, 6),
       })
       .save();
 

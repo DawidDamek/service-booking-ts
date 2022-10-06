@@ -1,7 +1,23 @@
 Dashboard
-
-<Shared::Chart::Pie
-  @labels={{this.ordersStatuses}}
-  @data={{this.numberOfOrdersByStatus}}
-  @colors={{this.statusColors}}
-/>
+<div class='row container mx-auto d-flex justify-content-around'>
+  <div class='card col-sm-10 col-lg-5 mx-auto'>
+    <div class='card-body text-center'>
+      <h5 class='card-title'>All orders</h5>
+      <Shared::Chart::Pie
+        @labels={{this.ordersStatuses}}
+        @data={{this.numberOfOrdersByStatus}}
+        @colors={{this.statusColors}}
+      />
+    </div>
+  </div>
+  <div class='card col-sm-10 col-lg-5 mx-auto'>
+    <div class='card-body text-center'>
+      <h5 class='card-title'>Today</h5>
+      <Shared::Chart::Pie
+        @labels={{this.ordersStatusesToday}}
+        @data={{this.numberOfOrdersByStatusToday}}
+        @colors={{this.statusColorsToday}}
+      />
+    </div>
+  </div>
+</div>

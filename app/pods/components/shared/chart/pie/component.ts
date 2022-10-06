@@ -23,16 +23,4 @@ export default class SharedChartPie extends Component<SharedChartPieArgs> {
     };
     return data;
   }
-
-  get chartOptions() {
-    const options = {
-      startAngle: 0,
-      animation: {
-        animateRotate: false,
-        animateScale: false,
-      },
-    };
-
-    return options;
-  }
 }
