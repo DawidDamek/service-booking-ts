@@ -1,7 +1,15 @@
 <table class='table table-dark table-striped table-hover w-75 mx-auto'>
   <thead>
     <tr>
-      <th scope='col'>#</th>
+      <th class='width-60' scope='col'>
+        {{! template-lint-disable require-input-label }}
+        <input
+          class='form-control form-control-sm input-container'
+          type='texst'
+          {{on 'input' this.onSearchInput}}
+          placeholder='filter by ID'
+        />
+      </th>
       <th scope='col'>Bike</th>
       <th scope='col'>Type</th>
       <th scope='col'>Acceptance date</th>
@@ -10,8 +18,14 @@
     </tr>
   </thead>
   <tbody>
-    {{#each @orders as |order|}}
+    {{#each this.filteredOrders as |order|}}
       <OrdersTable::Row @order={{order}} />
+    {{else}}
+      <tr>
+        <td class='text-center' colspan='6'>
+          <h2>Invalid ID</h2>
+        </td>
+      </tr>
     {{/each}}
   </tbody>
 </table>
