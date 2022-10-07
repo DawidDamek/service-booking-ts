@@ -107,6 +107,7 @@
     "edition": "octane"
   },
   "dependencies": {
+    "date-fns": "^2.29.3",
     "ember-cli-chart": "^3.7.2",
     "ember-cli-typescript": "^5.1.0"
   }
