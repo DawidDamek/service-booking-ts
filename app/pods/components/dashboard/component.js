@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { variantColor } from 'service-booking-ts/utils/order-statuses';
+import { format } from 'date-fns';
 
 export default class Dashboard extends Component {
   get orders() {
@@ -19,6 +20,21 @@ export default class Dashboard extends Component {
 
   get ordersStatusesToday() {
     return this.calculateStatuses(this.ordersToday);
+  }
+
+  get months() {
+    return Array.from({ length: 12 }, (_, index) =>
+      format(new Date(2022, index), 'MMMM')
+    );
+  }
+
+  get numberOfOrdersBymonth() {
+    return this.months.map((_, index) => {
+      return this.orders.filter((order) => {
+        const date = order.acceptanceDate;
+        return date.getMonth() === index;
+      }).length;
+    });
   }
 
   get statusColors() {
