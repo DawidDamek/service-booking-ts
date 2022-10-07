@@ -14,48 +14,51 @@ export default class Dashboard extends Component {
   }
 
   get ordersStatuses() {
-    return [
-      ...new Set(
-        this.orders.map((order) => {
-          return order.status;
-        })
-      ),
-    ];
+    return this.calculateStatuses(this.orders);
   }
 
   get ordersStatusesToday() {
+    return this.calculateStatuses(this.ordersToday);
+  }
+
+  get statusColors() {
+    return this.calculateStatusColors(this.ordersStatuses);
+  }
+
+  get statusColorsToday() {
+    return this.calculateStatusColors(this.ordersStatusesToday);
+  }
+
+  get numberOfOrdersByStatus() {
+    return this.calculateOrdersNumber(this.ordersStatuses, this.orders);
+  }
+
+  get numberOfOrdersByStatusToday() {
+    return this.calculateOrdersNumber(
+      this.ordersStatusesToday,
+      this.ordersToday
+    );
+  }
+
+  calculateStatuses(orders) {
     return [
       ...new Set(
-        this.ordersToday.map((order) => {
+        orders.map((order) => {
           return order.status;
         })
       ),
     ];
   }
 
-  get statusColors() {
-    return this.ordersStatuses.map((status) => {
+  calculateStatusColors(statuses) {
+    return statuses.map((status) => {
       return variantColor[status] || '#ffc107b3';
     });
   }
 
-  get statusColorsToday() {
-    return this.ordersStatusesToday.map((status) => {
-      return variantColor[status] || '#ffc107b3';
-    });
-  }
-
-  get numberOfOrdersByStatus() {
-    return this.ordersStatuses.map((status) => {
-      return this.orders.filter((order) => {
-        return order.status === status;
-      }).length;
-    });
-  }
-
-  get numberOfOrdersByStatusToday() {
-    return this.ordersStatusesToday.map((status) => {
-      return this.ordersToday.filter((order) => {
+  calculateOrdersNumber(statuses, orders) {
+    return statuses.map((status) => {
+      return orders.filter((order) => {
         return order.status === status;
       }).length;
     });
