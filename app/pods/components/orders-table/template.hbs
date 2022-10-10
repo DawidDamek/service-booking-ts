@@ -1,13 +1,32 @@
+<div class='d-flex justify-content-center my-1'>
+  <Shared::Button
+    class='btn-dark btn-sm rounded-start'
+    @label={{if this.isFilteredByDate '✕' 'Filter by dates'}}
+    @onClick={{this.onFiltertogle}}
+  />
+  {{#if this.isFilteredByDate}}
+    <EmberFlatpickr
+      class='text-center width-15rem'
+      @dateFormat='d-m-Y'
+      @mode='range'
+      @date={{this.dateToday}}
+      @onChange={{this.inputDate}}
+      @onReady={{this.onReady}}
+    />
+  {{/if}}
+</div>
+
 <table class='table table-dark table-striped table-hover w-75 mx-auto'>
   <thead>
     <tr>
       <th class='width-60' scope='col'>
         {{! template-lint-disable require-input-label }}
         <input
-          class='form-control form-control-sm input-container'
+          class={{'form-control form-control-sm input-container'}}
           type='texst'
           {{on 'input' this.onSearchInput}}
           placeholder='filter by ID'
+          disabled={{this.isFilteredByDate}}
         />
       </th>
       <th scope='col'>Bike</th>
