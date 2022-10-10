@@ -5,7 +5,7 @@ export function formatDate(params: any[]) {
   const day = date.getDate();
   const month = date.getMonth();
   const year = date.getFullYear();
-  return `${day}-${month}-${year}r.`;
+  return `${day}-${month + 1}-${year}r.`;
 }
 
 export default helper(formatDate);
