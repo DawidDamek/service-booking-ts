@@ -1,7 +1,7 @@
+<h1>Admin panel</h1>
+<LinkTo @route='home.orders'>
+  <Shared::Button class='btn-primary mb-2' @label='All orders' />
+</LinkTo>
 <div class='container'>
-  <h1>Admin panel</h1>
-  <LinkTo @route='home.orders'>
-    <Shared::Button class='btn-primary mb-2' @label='All orders' />
-  </LinkTo>
   <Dashboard @model={{this.model}} />
 </div>
