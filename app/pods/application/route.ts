@@ -1,12 +1,15 @@
 import Route from '@ember/routing/route';
 import { service } from '@ember/service';
+import ENV from 'service-booking-ts/config/environment';
+
+const isTesting = ENV.environment === 'test';
 
 export default class Application extends Route {
   @service declare store;
 
   async beforeModel() {
     const isFilledDataBase = window.localStorage.length;
-    if (isFilledDataBase) {
+    if (isTesting || isFilledDataBase) {
       return;
     }
 
