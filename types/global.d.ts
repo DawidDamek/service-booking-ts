@@ -7,3 +7,4 @@ declare module 'service-booking-ts/*/template' {
 declare module 'ember-local-storage/adapters/local';
 declare module 'ember-local-storage/serializers/serializer';
 declare module 'ember-local-storage';
+declare module 'service-booking-ts/config/environment';

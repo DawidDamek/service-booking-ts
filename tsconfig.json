@@ -66,20 +66,10 @@
     // work with TypeScript.
     "baseUrl": ".",
     "paths": {
-      "service-booking-ts/tests/*": [
-        "tests/*"
-      ],
-      "service-booking-ts/*": [
-        "app/*"
-      ],
-      "*": [
-        "types/*"
-      ]
+      "service-booking-ts/tests/*": ["tests/*"],
+      "service-booking-ts/*": ["app/*"],
+      "*": ["types/*"]
     }
   },
-  "include": [
-    "app/**/*",
-    "tests/**/*",
-    "types/**/*"
-  ]
+  "include": ["app/**/*", "tests/**/*", "types/**/*", "mirage"]
 }

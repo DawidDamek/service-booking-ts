@@ -28,7 +28,15 @@ module.exports = function (environment) {
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
+  ENV['ember-cli-mirage'] = {
+    enabled: false,
+  };
+
   if (environment === 'test') {
+    ENV['ember-cli-mirage'] = {
+      enabled: true,
+    };
+
     // Testem prefers this...
     ENV.locationType = 'none';
 
