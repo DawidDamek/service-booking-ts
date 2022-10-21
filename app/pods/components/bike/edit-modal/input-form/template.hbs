@@ -11,6 +11,7 @@
         id='inputBrand'
         placeholder={{@bike.brand}}
         {{on 'input' (fn @onPropertyChange 'brand')}}
+        data-test-input-brand
       />
     </li>
     <li class='list-group-item'>
@@ -24,6 +25,7 @@
         id='inputModel'
         placeholder={{@bike.model}}
         {{on 'input' (fn @onPropertyChange 'model')}}
+        data-test-input-model
       />
     </li>
 
@@ -38,20 +40,19 @@
         id='inputColor'
         placeholder={{@bike.color}}
         {{on 'input' (fn @onPropertyChange 'color')}}
+        data-test-input-color
       />
     </li>
 
     <li class='list-group-item'>
-      <label
-        for='inputBrand'
-        class='col-sm-2 col-form-label w-100'
-      >Brand</label>
+      <label for='inputSize' class='col-sm-2 col-form-label w-100'>Size</label>
       <input
         type='text'
         class='form-control w-75'
         id='inputSize'
         placeholder={{@bike.size}}
         {{on 'input' (fn @onPropertyChange 'size')}}
+        data-test-input-size
       />
     </li>
 
@@ -63,6 +64,7 @@
         id='inputPhotoUrl'
         placeholder={{@bike.photoUrl}}
         {{on 'input' (fn @onPropertyChange 'photoUrl')}}
+        data-test-input-photoUrl
       />
     </li>
 
@@ -77,6 +79,7 @@
         id='description'
         placeholder={{@bike.description}}
         {{on 'input' (fn @onPropertyChange 'description')}}
+        data-test-input-description
       />
     </li>
   </ul>

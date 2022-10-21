@@ -1,3 +1,7 @@
-{{#each @bikes as |bike|}}
-  <Bike::List::Item @bike={{bike}} />
+{{#each @bikes as |bike index|}}
+  <Bike::List::Item
+    @bike={{bike}}
+    @index={{index}}
+    data-test-bike-item={{index}}
+  />
 {{/each}}
