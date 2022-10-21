@@ -23,4 +23,6 @@ export default function () {
   this.get('/issues/:id');
   this.post('/issues');
   this.put('/issues/:id');
+
+  this.get('/comments');
 }
