@@ -21,7 +21,7 @@
           <LinkTo class='nav-link' @route='home.order.new'>New Order</LinkTo>
         </li>
         {{#if this.isUserAdmin}}
-          <li class='nav-item'>
+          <li class='nav-item' data-test-admin-panel>
             <LinkTo class='nav-link' @route='home.admin'>Admin panel</LinkTo>
           </li>
         {{/if}}
