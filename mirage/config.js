@@ -25,4 +25,7 @@ export default function () {
   this.put('/issues/:id');
 
   this.get('/comments');
+  this.delete('/comments/:id');
+  this.put('/comments');
+  this.post('/comments/');
 }
