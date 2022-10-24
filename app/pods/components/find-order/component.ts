@@ -12,6 +12,7 @@ interface FindOrderArgs {
 export default class FindOrder extends Component<FindOrderArgs> {
   @tracked isShowOrder = false;
   @tracked id = '';
+  @tracked declare inputElement: HTMLInputElement;
 
   get filteredOrder() {
     const orders = this.args.model.orders;
@@ -20,6 +21,7 @@ export default class FindOrder extends Component<FindOrderArgs> {
 
   @action
   onOrderIdFilter({ target }: { target: HTMLInputElement }) {
+    this.inputElement = target;
     this.id = target.value;
   }
 
@@ -30,6 +32,7 @@ export default class FindOrder extends Component<FindOrderArgs> {
 
   @action
   onHideOrder() {
+    this.inputElement.value = '';
     this.id = '';
     this.isShowOrder = false;
   }
