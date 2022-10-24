@@ -1,38 +1,45 @@
-<div class='card w-75 mx-auto bg-secondary mt-3'>
+<div class='card w-75 mx-auto bg-secondary mt-3' data-test-order-details>
   <div class='card-header text-white bg-dark'>
     Your Order
   </div>
   <div class='card-body'>
 
     {{#each @filteredOrder as |order|}}
-      <h3>{{order.owner.name}} {{order.owner.surname}}</h3>
-      <h5>
+      <h3 data-test-owner-fullName>{{order.owner.name}}
+        {{order.owner.surname}}</h3>
+      <h5 data-test-bike-fullName>
         Bike:
         {{order.bike.fullName}}
       </h5>
       <p class='d-flex justify-content-around'>
-        <span>
+        <span data-test-date-acceptance>
           Acceptance date:
           {{format-date order.acceptanceDate}}
         </span>
-        <span>
-          Aproximated release date
+        <span data-test-date-release>
+          Aproximated release date:
           {{format-date order.releaseDate}}
         </span>
       </p>
 
       <ul class='list-group rounded'>
-        {{#each order.bike.issues as |issue|}}
-          <li class='list-group-item d-flex justify-content-between'>
+        {{#each order.bike.issues as |issue index|}}
+          <li
+            class='list-group-item d-flex justify-content-between'
+            data-test-issue={{index}}
+          >
             {{issue.details}}
-            <b>{{issue.status}}</b>
+            <b date-test-issue-status={{index}}>{{issue.status}}</b>
           </li>
         {{/each}}
       </ul>
       <div class='d-flex flex-column justify-content-between my-2'>
         <h3> Comments: </h3>
-        {{#each order.comments as |comment|}}
-          <Comment::Display @comment={{comment}} />
+        {{#each order.comments as |comment index|}}
+          <Comment::Display
+            @comment={{comment}}
+            data-test-comment-display={{index}}
+          />
         {{/each}}
 
         {{#if this.showCommentField}}
@@ -46,7 +53,7 @@
       </div>
 
     {{else}}
-      <p>invalid order id</p>
+      <p data-test-info-invalidId>Invalid order ID</p>
     {{/each}}
 
     <div class='d-flex justify-content-between'>
@@ -54,13 +61,14 @@
         class='btn-primary mt-2'
         @label='Add comment'
         @onClick={{this.onAddComment}}
+        data-test-button-addComment
       />
       <Shared::Button
         class='btn-danger mt-2'
         @label='Close'
         @onClick={{@onClick}}
+        data-test-button-cancel
       />
-
     </div>
   </div>
 </div>

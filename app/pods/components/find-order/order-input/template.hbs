@@ -1,4 +1,4 @@
-<div class='card w-75 mx-auto mt-5 bg-secondary'>
+<div class='card w-75 mx-auto mt-5 bg-secondary' data-test-find-order>
   <div class='card-header text-white bg-dark'>
     Check Your order status
   </div>
@@ -15,6 +15,7 @@
           aria-describedby='basic-addon1'
           value={{this.id}}
           {{on 'input' @onInput}}
+          data-test-input-order
         />
       </div>
       <Shared::Button
@@ -22,6 +23,7 @@
         @type='submit'
         @label='Check'
         @onClick={{@onSubmit}}
+        data-test-button-check
       />
     </form>
   </div>
