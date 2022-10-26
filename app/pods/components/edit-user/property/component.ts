@@ -15,6 +15,7 @@ export default class EditUserProperty extends Component<EditUserPropertyArgs> {
   @service declare session: SessionService;
   @tracked isEditable = false;
   @tracked userProperty = this.args.userProperty;
+  @tracked target = document.querySelector('input') as HTMLInputElement;
 
   get shouldNotEdit() {
     return !this.isEditable;
@@ -29,9 +30,8 @@ export default class EditUserProperty extends Component<EditUserPropertyArgs> {
   }
 
   @action
-  onSave(event: TransitionEvent) {
-    const target = event.target as HTMLInputElement;
-    target.focus();
+  onSave() {
+    this.target.blur();
     this.currentUser.save();
     this.#editSwitch();
   }
@@ -44,6 +44,7 @@ export default class EditUserProperty extends Component<EditUserPropertyArgs> {
 
   @action
   onEditPropertySwitch() {
+    this.target.focus();
     this.#editSwitch();
   }
 
