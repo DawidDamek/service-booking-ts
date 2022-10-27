@@ -1,4 +1,4 @@
-<form {{on 'submit' this.onSave}}>
+<form {{on 'submit' this.onSave}} data-test-user={{@property}}>
   <div class='input-group mb-3'>
     <span
       class='input-group-text w-25 text-wrap px-2'
@@ -18,12 +18,14 @@
         class='btn-sm btn-outline-light'
         @label='✖️'
         @onClick={{this.onCancel}}
+        data-test-button-cancel
       />
       <Shared::Button
         class='btn-sm btn-outline-light'
         @type='submit'
         @label='✔️'
         @onClick={{this.onSave}}
+        data-test-button-save
       />
     {{else}}
       <Shared::Button
@@ -31,6 +33,7 @@
         class='btn-sm btn-outline-light'
         @label='✏️'
         @onClick={{this.onEditPropertySwitch}}
+        data-test-button-edit
       />
     {{/if}}
 
